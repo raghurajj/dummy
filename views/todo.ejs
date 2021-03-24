@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title> ToDo App </title>
+        <!--We will add this style later-->
+        <link href="/static/style.css" rel="stylesheet">
+
+
+        <script>
+
+            function deleteTodo() {
+                document.getElementById("todoForm").method = "post";
+                document.getElementById("todoForm").action = document.getElementById("todoForm").action + "/:" + document.getElementById("remove").value;
+                
+                document.getElementById("todoForm").submit();
+            }
+        </script>
+    </head>
+    <body>
+        <div class="todo-container">
+            <h2> ToDo App </h2>
+            <div class="todo">
+            <form action ="/todos" method="POST" id="todoForm" >
+                <input type="text" name="newtodo" placeholder="add new todo">
+                <button type=submit> Add Todo </button>
+
+                <h2> ToDo List </h2>
+                <% for( var i = 0; i < todos.length; i++){ %>
+
+                <input type="checkbox" id="remove" value="<%= todos[i].id %>" /> <%=todos[i].title %> </br>
+                <% } %>
+
+                <button onclick="deleteTodo()" type="button"> Remove </button>
+
+            </form>
+
+            <h2> Completed ToDo </h2>
+            <% for(var i = 0; i < complete.length; i++){ %>
+            <input type="checkbox" checked><%= complete[i].title %> </br>
+            <% } %>
+        </div>
+        </div>
+    </body>
+</html>
