@@ -1,0 +1,10 @@
+1)The delete functionality is not working properly. I mean it's picking the first task in the list and
+ delete it when we click "Remove", and not giving us option to delete the task which we actually want
+ to delete.
+
+2)It's not checking if the task we are adding is empty or not. and adding it anyway.
+
+3)It would be better if we maintain a seperate file for the javascript part in todo.ejs.
+
+4)we are sending post request to delete a task that's not quite a good idea. we should use "delete"
+  request to delete a task.
